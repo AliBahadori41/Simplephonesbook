@@ -5,6 +5,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.bahadori.simple_phone_s_book.database.AppDatabase;
+import com.example.bahadori.simple_phone_s_book.database.dao.PhoneBookDao;
+import com.example.bahadori.simple_phone_s_book.entity.Person;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final PhoneBookDao phoneBookDao = AppDatabase.with(this).phoneBookDao();
+
         fn=findViewById(R.id.editText2);
         ln=findViewById(R.id.editText3);
         num=findViewById(R.id.editText1);
@@ -35,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
                 String lastname = ln.getText().toString();
                 String number = num.getText().toString();
 
-
+                Person person = new Person(firstname,lastname,number);
+                phoneBookDao.addNewPerson(person);
 
             }
         });
