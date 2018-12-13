@@ -11,8 +11,6 @@ import com.example.bahadori.simple_phone_s_book.entity.Person;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,18 +28,18 @@ public class MainActivity extends AppCompatActivity {
 
         final PhoneBookDao phoneBookDao = AppDatabase.with(this).phoneBookDao();
 
-        fn=findViewById(R.id.editText2);
-        ln=findViewById(R.id.editText3);
-        num=findViewById(R.id.editText1);
-        save=findViewById(R.id.button);
+        fn = findViewById(R.id.editText2);
+        ln = findViewById(R.id.editText3);
+        num = findViewById(R.id.editText1);
+        save = findViewById(R.id.button);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick (View v) {
+            public void onClick(View v) {
                 String firstname = fn.getText().toString();
                 String lastname = ln.getText().toString();
                 String number = num.getText().toString();
 
-                Person person = new Person(firstname,lastname,number);
+                Person person = new Person(firstname, lastname, number);
                 phoneBookDao.addNewPerson(person);
 
             }
