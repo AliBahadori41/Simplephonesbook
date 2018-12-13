@@ -14,8 +14,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
 
-    public abstract PhoneBookDao phoneBookDao();
-
     public static AppDatabase with(Context context) {
 
         if (instance == null)
@@ -24,5 +22,7 @@ public abstract class AppDatabase extends RoomDatabase {
         return instance;
 
     }
+
+    public abstract PhoneBookDao phoneBookDao();
 
 }
