@@ -1,5 +1,6 @@
 package com.example.bahadori.simple_phone_s_book;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     EditText ln;
     EditText num;
     Button save;
+    Button showInfo;
 
 
     @Override
@@ -44,5 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        showInfo = findViewById(R.id.showInfo);
+        showInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, namayesh_Layout.class));
+            }
+        });
+
+
     }
 }
